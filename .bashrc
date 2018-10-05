@@ -1,11 +1,22 @@
+# Edit and copy this script in your .bashrc
 
+# Location of new projects
 PROJ_DIR=$HOME/ws/web
+
+# Alias name for change to projects directory and listing the directory.
+# The alias name can be change.
+# Usage: web
 alias web='cd $PROJ_DIR;ls $PROJ_DIR'
-function maker(){
+
+
+# This function create the new project 
+# The name can be change.
+# Usage: webproj {project_name}
+function webproj(){
     if [ "$1" != "" ];then
         cp -r $HOME/.scripts/template $HOME/ws/web/$1
-        echo 'Project $1 Created on $PROJ_DIR'
+        echo "Project ${1} created on ${PROJ_DIR}"
     else
-        echo "Usage: web {project_name}"
+        echo "Usage: ${FUNCNAME[0]} {project_name}"
     fi
 } 
